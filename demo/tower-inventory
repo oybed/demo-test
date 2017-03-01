@@ -1,0 +1,3 @@
+
+[tower]
+tower.demo.rht-labs.com ansible_user=obedin ansible_become=true

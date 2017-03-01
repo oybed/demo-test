@@ -1,0 +1,19 @@
+---
+
+- name: "Install Ansible Tower"
+  hosts: tower
+  vars:
+  - tower_admin_password: admin
+  - tower_license_file: /home/obedin/coding/demo/tower-license.json
+  - ldap_uri: ldap://idm-2.etl.rht-labs.com:389
+  - ldap_bind_dn: uid=ldap-rhoil,cn=users,cn=accounts,dc=etl,dc=rht-labs,dc=com
+  - ldap_bind_password: rhoil-ldap01!
+  - ldap_user_search_dn: cn=users,cn=accounts,dc=etl,dc=rht-labs,dc=com
+  - ldap_group_search_dn: cn=groups,cn=accounts,dc=etl,dc=rht-labs,dc=com
+  - ldap_user_dn_template: uid=%(user)s,cn=users,cn=accounts,dc=etl,dc=rht-labs,dc=com
+  - ldap_require_group: cn=rhoil-core-demo-users,cn=groups,cn=accounts,dc=etl,dc=rht-labs,dc=com
+  - ldap_admin_group: cn=rhoil-core-demo-admins,cn=groups,cn=accounts,dc=etl,dc=rht-labs,dc=com
+  roles:
+  - role: ansibletower
+
+
